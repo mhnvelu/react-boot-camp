@@ -22,6 +22,14 @@ class ZenQuote extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+    console.log("IN COMPONENT DID UPDATE");
+  }
+
+  componentWillUnmount() {
+    console.log("IN COMPONENT WILL UNMOUNT");
+  }
+
   // called many times whenever there is state change.
   render() {
     console.log("IN RENDER");
