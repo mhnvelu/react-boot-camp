@@ -1,0 +1,7 @@
+.Dog img {
+  width: 75%;
+  border-radius: 50%;
+}
+.DogList .container {
+  margin-top: 4rem;
+}
