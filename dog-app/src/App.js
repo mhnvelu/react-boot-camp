@@ -7,6 +7,7 @@ import tubby from "./images/tubby.jpg";
 import whiskey from "./images/whiskey.jpg";
 import DogList from "./DogList";
 import DogDetails from "./DogDetails";
+import Navbar from "./Navbar";
 
 class App extends React.Component {
   static defaultProps = {
@@ -53,15 +54,18 @@ class App extends React.Component {
     };
 
     return (
-      <Switch>
-        <Route
-          exact
-          path="/dogs"
-          render={() => <DogList dogs={this.props.dogs} />}
-        />
+      <div>
+        <Navbar dogs={this.props.dogs} />
+        <Switch>
+          <Route
+            exact
+            path="/dogs"
+            render={() => <DogList dogs={this.props.dogs} />}
+          />
 
-        <Route exact path="/dogs/:name" render={getDog} />
-      </Switch>
+          <Route exact path="/dogs/:name" render={getDog} />
+        </Switch>
+      </div>
     );
   }
 }
