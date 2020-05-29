@@ -14,6 +14,9 @@ export default class CounterClass extends Component {
   render() {
     return (
       <div>
+        <h1 style={{ textDecoration: "underline" }}>
+          Implemented with Class Component
+        </h1>
         <h4>The Class count is : {this.state.count}</h4>
         <button onClick={this.increment}>Count</button>
       </div>
