@@ -5,6 +5,7 @@ import CounterHook from "./hooks/CounterHook";
 import Toggler from "./hooks/Toggler";
 import SimpleFormClass from "./SimpleFormClass";
 import SimpleFormHook from "./hooks/SimpleFormHook";
+import SimpleFormCustomHook from "./hooks/SimpleFormCustomHook";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Toggler />
       <SimpleFormClass />
       <SimpleFormHook />
+      <SimpleFormCustomHook />
     </div>
   );
 }
