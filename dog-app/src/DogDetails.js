@@ -6,15 +6,15 @@ export default class DogDetails extends Component {
     let { dog } = this.props;
     return (
       <div className="DogDetails container">
-        <div className="row justify-content-center mt-5">
+        <div className="row justify-content-center mt-4 mb-2">
           <div className="col-11 col-lg-5">
             <div className="DogDetails-card card">
               <img className="card-img-top" src={dog.src} alt={dog.name} />
               <div className="card-body">
-                <h2 className="card-title">{dog.name}</h2>
-                <h4 className="card-subtitle  text-muted">
+                <h3 className="card-title">{dog.name}</h3>
+                <h5 className="card-subtitle  text-muted">
                   {dog.age} years old
-                </h4>
+                </h5>
               </div>
               <ul className="list-group list-group-flush">
                 {dog.facts.map((fact, i) => (
@@ -24,7 +24,7 @@ export default class DogDetails extends Component {
                 ))}
               </ul>
               <div className="card-body">
-                <Link to="/dogs" className="btn btn-info">
+                <Link to="/dogs" className="btn btn-info btn-sm">
                   GO BACK
                 </Link>
               </div>
