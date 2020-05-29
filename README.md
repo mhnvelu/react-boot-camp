@@ -8,5 +8,5 @@
 
 ## Covers React Router
 
-![Image description](./images/DogApp-1.PNG)
-![Image description](./images/DogApp-2.PNG)
+![Image description](./images/DogApp-1.png)
+![Image description](./images/DogApp-2.png)
