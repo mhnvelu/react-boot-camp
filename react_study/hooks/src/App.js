@@ -12,13 +12,13 @@ import SWMovies from "./hooks/SWMovies";
 function App() {
   return (
     <div className="App">
-      {/* <CounterClass />
+      <CounterClass />
       <CounterHook />
       <Toggler />
       <SimpleFormClass />
       <SimpleFormHook />
       <SimpleFormCustomHook />
-      <Clicker /> */}
+      <Clicker />
       <SWMovies />
     </div>
   );
