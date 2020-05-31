@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
@@ -7,7 +7,6 @@ import Grid from "@material-ui/core/Grid";
 import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
 import useTodoState from "./hooks/useTodoState";
-import useLocalStorageState from "./hooks/useLocalStorageState";
 
 export default function TodoApp() {
   const { todos, addTodo, removeTodo, toggleTodo, editTodo } = useTodoState([]);
