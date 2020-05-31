@@ -11,10 +11,8 @@ export default function TodoList(props) {
           {props.todos.map((todo, i) => (
             <>
               <Todo
-                id={todo.id}
-                task={todo.task}
                 key={todo.id}
-                completed={todo.completed}
+                {...todo}
                 removeTodo={props.removeTodo}
                 toggleTodo={props.toggleTodo}
                 editTodo={props.editTodo}
