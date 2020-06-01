@@ -9,7 +9,9 @@ export default function TodoList(props) {
       <Paper>
         <List>
           {props.todos.map((todo, i) => (
-            <>
+            // To add a key to a fragment, we have to use the long-hand version rather than
+            // <> </>, we have to use <React.Fragment>
+            <React.Fragment key={i}>
               <Todo
                 key={todo.id}
                 {...todo}
@@ -18,7 +20,7 @@ export default function TodoList(props) {
                 editTodo={props.editTodo}
               />
               {i < props.todos.length - 1 && <Divider />}
-            </>
+            </React.Fragment>
           ))}
         </List>
       </Paper>
