@@ -20,3 +20,12 @@ export class LanguageProvider extends Component {
     );
   }
 }
+
+// Creata HoC - Higher Order Component
+export const withLanguageContext = (Component) => (props) => (
+  <LanguageContext.Consumer>
+    {(contextValue) => (
+      <Component languageContextValue={contextValue} {...props} />
+    )}
+  </LanguageContext.Consumer>
+);
