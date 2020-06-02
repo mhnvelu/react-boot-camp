@@ -51,8 +51,8 @@ class Form extends Component {
           </Avatar>
           <Typography variant="h5">{signIn}</Typography>
           <Select value={language} onChange={changeLanguage}>
-            <MenuItem value="english">English</MenuItem>
             <MenuItem value="tamil">Tamil</MenuItem>
+            <MenuItem value="english">English</MenuItem>
             <MenuItem value="irish">Irish</MenuItem>
           </Select>
           <form className={classes.form}>
