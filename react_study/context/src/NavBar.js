@@ -16,7 +16,7 @@ class NavBar extends Component {
 
   render() {
     console.log(this.context);
-    const { isDarkTheme } = this.context;
+    const { isDarkTheme, toggleTheme } = this.context;
     const { classes } = this.props;
     return (
       <div className={classes.root}>
@@ -28,7 +28,7 @@ class NavBar extends Component {
             <Typography className={classes.title} variant="h6" color="inherit">
               App Title
             </Typography>
-            <Switch />
+            <Switch onChange={toggleTheme} />
             <div className={classes.grow} />
             <div className={classes.search}>
               <div className={classes.searchIcon}>
