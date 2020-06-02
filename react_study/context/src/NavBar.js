@@ -9,7 +9,7 @@ import Switch from "@material-ui/core/Switch";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "./styles/NavBarStyles";
 import { ThemeContext } from "./contexts/ThemeContext";
-
+import { LanguageContext } from "./contexts/LanguageContext";
 class NavBar extends Component {
   //consume a context
   static contextType = ThemeContext;
@@ -19,29 +19,41 @@ class NavBar extends Component {
     const { isDarkTheme, toggleTheme } = this.context;
     const { classes } = this.props;
     return (
-      <div className={classes.root}>
-        <AppBar position="static" color={isDarkTheme ? "default" : "primary"}>
-          <Toolbar color="inherit">
-            <IconButton className={classes.menuButton}>
-              <span role="img"> 🇮🇪</span>
-            </IconButton>
-            <Typography className={classes.title} variant="h6" color="inherit">
-              App Title
-            </Typography>
-            <Switch onChange={toggleTheme} />
-            <div className={classes.grow} />
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <Search />
-              </div>
-              <InputBase
-                placeholder="Search..."
-                classes={{ root: classes.inputRoot, input: classes.inputInput }}
-              />
-            </div>
-          </Toolbar>
-        </AppBar>
-      </div>
+      <LanguageContext.Consumer>
+        {(contextValue) => (
+          <div className={classes.root}>
+            <AppBar
+              position="static"
+              color={isDarkTheme ? "default" : "primary"}>
+              <Toolbar color="inherit">
+                <IconButton className={classes.menuButton}>
+                  <span>IE</span>
+                </IconButton>
+                <Typography
+                  className={classes.title}
+                  variant="h6"
+                  color="inherit">
+                  App Title {contextValue.language}
+                </Typography>
+                <Switch onChange={toggleTheme} />
+                <div className={classes.grow} />
+                <div className={classes.search}>
+                  <div className={classes.searchIcon}>
+                    <Search />
+                  </div>
+                  <InputBase
+                    placeholder="Search..."
+                    classes={{
+                      root: classes.inputRoot,
+                      input: classes.inputInput,
+                    }}
+                  />
+                </div>
+              </Toolbar>
+            </AppBar>
+          </div>
+        )}
+      </LanguageContext.Consumer>
     );
   }
 }

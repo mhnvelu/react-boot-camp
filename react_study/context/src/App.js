@@ -3,13 +3,15 @@ import Navbar from "./NavBar";
 import Form from "./Form";
 import PageContent from "./PageContent";
 import { ThemeProvider } from "./contexts/ThemeContext";
-
+import { LanguageProvider } from "./contexts/LanguageContext";
 function App() {
   return (
     <ThemeProvider>
       <PageContent>
-        <Navbar />
-        <Form />
+        <LanguageProvider>
+          <Navbar />
+          <Form />
+        </LanguageProvider>
       </PageContent>
     </ThemeProvider>
   );
