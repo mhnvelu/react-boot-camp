@@ -10,7 +10,7 @@ export default function Clicker() {
   return (
     <div>
       <h1 style={{ textDecoration: "underline" }}>
-        Implemented with functional component and useEffect
+        Implemented with functional component and useState, useEffect
       </h1>
       <button onClick={() => setCount(count + 1)}>Click Me {count}</button>
     </div>

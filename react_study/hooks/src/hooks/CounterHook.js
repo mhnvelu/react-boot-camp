@@ -5,7 +5,7 @@ export default function CounterHook() {
   return (
     <div>
       <h1 style={{ textDecoration: "underline" }}>
-        Implemented with functional component and hook
+        Implemented with functional component and useState hook
       </h1>
       <h4>The Hook count is : {state}</h4>
       <button onClick={() => setState(state + 1)}>Count</button>

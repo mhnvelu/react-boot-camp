@@ -15,7 +15,10 @@ export default function SWMovies() {
   }, [moviedId]);
   return (
     <div>
-      <h1>Pick A movie</h1>
+      <h1 style={{ textDecoration: "underline" }}>
+        Implemented with functional component and useState, useEffect
+      </h1>
+      <h3>Pick A movie</h3>
       <h4>You chose : {movieTitle}</h4>
       <select value={moviedId} onChange={(e) => setMoviedId(e.target.value)}>
         <option value="1">1</option>

@@ -8,7 +8,7 @@ import SimpleFormHook from "./hooks/SimpleFormHook";
 import SimpleFormCustomHook from "./hooks/SimpleFormCustomHook";
 import Clicker from "./hooks/Clicker";
 import SWMovies from "./hooks/SWMovies";
-
+import ReducerHook from "./hooks/ReducerHook";
 function App() {
   return (
     <div className="App">
@@ -20,6 +20,7 @@ function App() {
       <SimpleFormCustomHook />
       <Clicker />
       <SWMovies />
+      <ReducerHook />
     </div>
   );
 }

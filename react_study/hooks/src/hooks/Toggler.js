@@ -15,10 +15,10 @@ export default function Toggler() {
       <h1 style={{ textDecoration: "underline" }}>
         Implemented with Custom Toggle - useToggle hook
       </h1>
-      <h1 onClick={toggleHappy}>{happy ? "Happy!!" : "Sad"}</h1>
-      <h1 onClick={toggleWorkDone}>
+      <h3 onClick={toggleHappy}>{happy ? "Happy!!" : "Sad"}</h3>
+      <h3 onClick={toggleWorkDone}>
         {workdone ? "Work Done!!" : "Work Pending"}
-      </h1>
+      </h3>
     </div>
   );
 }

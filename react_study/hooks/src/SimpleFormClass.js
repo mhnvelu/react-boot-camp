@@ -16,7 +16,7 @@ export default class SimpleFormClass extends Component {
         <h1 style={{ textDecoration: "underline" }}>
           Implemented with Class Component
         </h1>
-        <h1>You entered : {this.state.email}</h1>
+        <h4>You entered : {this.state.email}</h4>
         <input
           type="text"
           value={this.state.email}

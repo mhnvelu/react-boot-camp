@@ -5,9 +5,9 @@ export default function SimpleFormHook() {
   return (
     <div>
       <h1 style={{ textDecoration: "underline" }}>
-        Implemented with function Component
+        Implemented with function Component and useState
       </h1>
-      <h1>You entered : {email}</h1>
+      <h4>You entered : {email}</h4>
       <input
         type="text"
         value={email}
