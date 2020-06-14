@@ -4,7 +4,7 @@ const Post = (props) => {
   console.log("******** RUNNING POST PAGE ***********");
   return (
     <>
-      <h2>Commnets for Post #{props.router.query.id}</h2>
+      <h2>Comments for Post #{props.router.query.id}</h2>
       {props.post.map((p) => (
         <Comment key={p.id} {...p} />
       ))}
@@ -22,8 +22,10 @@ const Comment = ({ email, body }) => {
 };
 
 Post.getInitialProps = async (context) => {
+  console.log(context.query);
   let url = `https://jsonplaceholder.typicode.com/comments?postId=${context.query.id}`;
   let response = await axios.get(url);
+  console.log(response.data);
   return { post: response.data };
 };
 
