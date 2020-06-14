@@ -8,7 +8,7 @@ const hello = (props) => {
       <h2>Posts :</h2>
       {props.posts.map((post) => (
         <p key={post.id} id={post.id}>
-          <Link href={`/post?id=${post.id}`}>
+          <Link href={`/post?id=${post.id}`} as={`/p/${post.id}`}>
             <a>{post.title} </a>
           </Link>
         </p>
