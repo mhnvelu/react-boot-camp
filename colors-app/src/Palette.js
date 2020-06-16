@@ -1,9 +1,14 @@
 import React from "react";
-
-export default function Palette() {
+import "./Palette.css";
+import ColorBox from "./ColorBox";
+export default function Palette(props) {
   return (
     <div className="Palette">
-      <div className="Palette-colors"></div>
+      <div className="Palette-colors">
+        {props.colors.map((color) => (
+          <ColorBox {...color} />
+        ))}
+      </div>
     </div>
   );
 }
