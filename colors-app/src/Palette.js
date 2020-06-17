@@ -7,7 +7,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 
 export default function Palette(props) {
-  const [level, setLevel] = useState(200);
+  const [level, setLevel] = useState(500);
   const [format, setFormat] = useState({ value: "hex", open: false });
 
   function handleSliderChange(newLevel) {
@@ -32,7 +32,11 @@ export default function Palette(props) {
       />
       <div className="Palette-colors">
         {props.colors[level].map((color) => (
-          <ColorBox name={color.name} color={color[format.value]} />
+          <ColorBox
+            key={color.id}
+            name={color.name}
+            color={color[format.value]}
+          />
         ))}
       </div>
 
@@ -59,6 +63,10 @@ export default function Palette(props) {
           </IconButton>
         }
       />
+
+      <footer className="Palette-footer">
+        {props.paletteName} <span className="emoji">{props.emoji}</span>
+      </footer>
     </div>
   );
 }
