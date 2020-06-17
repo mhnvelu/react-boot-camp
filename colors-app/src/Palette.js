@@ -1,6 +1,7 @@
 import React from "react";
 import "./Palette.css";
 import ColorBox from "./ColorBox";
+
 export default function Palette(props) {
   return (
     <div className="Palette">
