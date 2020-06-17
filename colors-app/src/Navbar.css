@@ -52,9 +52,9 @@
   margin-left: -7px;
 }
 
-/* Select box */
+/* Select Container */
 
-.selectBox {
-  align-self: flex-end;
-  justify-self: flex-end;
+.select-container {
+  margin-left: auto;
+  margin-right: 1rem;
 }
