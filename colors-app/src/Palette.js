@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./Palette.css";
 import ColorBox from "./ColorBox";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import "./Palette.css";
 
 export default function Palette(props) {
   const [level, setLevel] = useState(200);
@@ -13,14 +13,16 @@ export default function Palette(props) {
 
   return (
     <div className="Palette">
-      <Slider
-        defaultValue={level}
-        step={100}
-        min={100}
-        max={900}
-        dots={true}
-        onAfterChange={handleSliderChange}
-      />
+      <div className="slider">
+        <Slider
+          defaultValue={level}
+          step={100}
+          min={100}
+          max={900}
+          onAfterChange={handleSliderChange}
+        />
+      </div>
+
       <div className="Palette-colors">
         {props.colors[level].map((color) => (
           <ColorBox {...color} />
