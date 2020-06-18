@@ -65,7 +65,8 @@ export default function Palette(props) {
       />
 
       <footer className="Palette-footer">
-        {props.paletteName} <span className="emoji">{props.emoji}</span>
+        {props.paletteName}{" "}
+        <i className={`emoji em em-flag-${props.emoji}`}></i>
       </footer>
     </div>
   );
