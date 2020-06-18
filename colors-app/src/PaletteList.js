@@ -33,7 +33,7 @@ const styles = {
   },
 };
 function PaletteList(props) {
-  const { palettes, classes } = props;
+  const { palettes, classes, routeProps } = props;
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -42,7 +42,7 @@ function PaletteList(props) {
         </nav>
         <div className={classes.palettes}>
           {palettes.map((palette) => (
-            <MiniPalette {...palette} />
+            <MiniPalette {...palette} {...routeProps} />
           ))}
         </div>
       </div>
