@@ -3,34 +3,46 @@ import { withStyles } from "@material-ui/styles";
 import { grey } from "@material-ui/core/colors";
 
 const styles = {
-  main: {
-    backgroundColor: "purple",
-    border: "3px solid teal",
-  },
-  secondary: {
-    backgroundColor: "grey",
-    "& h3": {
-      color: "green",
-      "& span": {
-        color: "red",
-      },
+  root: {
+    backgroundColor: "white",
+    border: "1px solid black",
+    borderRadius: "5px",
+    padding: "0.5rem",
+    position: "relative",
+    overflow: "hidden",
+    "&:hover": {
+      cursor: "pointer",
     },
+  },
+  colors: {
+    backgroundColor: "grey",
+  },
+  title: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    margin: "0",
+    color: "black",
+    paddingTop: "0.5rem",
+    fontSize: "1rem",
+    position: "relative",
+  },
+  emoji: {
+    marginLeft: "0.5rem",
+    fontSize: "1.5rem",
   },
 };
 
 function MiniPalette(props) {
-  const { classes } = props;
+  const { classes, id, paletteName, emoji, colors } = props;
+
   return (
-    <>
-      <div className={classes.main}>
-        <h1>MiniPalette</h1>
-      </div>
-      <div className={classes.secondary}>
-        <h3>
-          Secondary <span>section</span>{" "}
-        </h3>
-      </div>
-    </>
+    <div className={classes.root}>
+      <div className={classes.colors}></div>
+      <h5 className={classes.title}>
+        {paletteName} <i className={`em em-flag-${emoji}`}></i>
+      </h5>
+    </div>
   );
 }
 
