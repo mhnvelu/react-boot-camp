@@ -33,6 +33,8 @@ export default function Palette(props) {
       <div className="Palette-colors">
         {props.colors[level].map((color) => (
           <ColorBox
+            paletteId={props.id}
+            colorId={color.id}
             key={color.id}
             name={color.name}
             color={color[format.value]}
