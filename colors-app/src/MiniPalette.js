@@ -14,7 +14,14 @@ const styles = {
     },
   },
   colors: {
-    backgroundColor: "grey",
+    backgroundColor: "#dae1e4",
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "flex-start",
+    height: "150px",
+    width: "100%",
+    borderRadius: "5px",
+    overflow: "hidden",
   },
   title: {
     display: "flex",
@@ -30,14 +37,27 @@ const styles = {
     marginLeft: "0.5rem",
     fontSize: "1.5rem",
   },
+  minibox: {
+    width: "20%",
+    height: "25%",
+  },
 };
 
 function MiniPalette(props) {
   const { classes, id, paletteName, emoji, colors } = props;
 
+  const miniColorBoxes = colors.map((color) => {
+    return (
+      <div
+        key={color.name}
+        className={classes.minibox}
+        style={{ backgroundColor: color.color }}></div>
+    );
+  });
+
   return (
     <div className={classes.root}>
-      <div className={classes.colors}></div>
+      <div className={classes.colors}>{miniColorBoxes}</div>
       <h5 className={classes.title}>
         {paletteName} <i className={`em em-flag-${emoji}`}></i>
       </h5>
