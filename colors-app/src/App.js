@@ -4,9 +4,9 @@ import Palette from "./Palette";
 import seedColors from "./seedColors";
 import "./App.css";
 import { generatePalette } from "./ColorHelper";
+import PaletteList from "./PaletteList";
 function App() {
   const findPalette = (id) => {
-    console.log(id);
     let palette = seedColors.find((palette) => {
       return palette.id === id;
     });
@@ -15,7 +15,11 @@ function App() {
 
   return (
     <Switch>
-      <Route exact path="/" render={() => <h1>Palette List</h1>} />
+      <Route
+        exact
+        path="/"
+        render={() => <PaletteList palettes={seedColors} />}
+      />
       <Route
         exact
         path="/palette/:id"

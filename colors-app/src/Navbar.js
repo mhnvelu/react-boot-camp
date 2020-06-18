@@ -4,11 +4,12 @@ import "rc-slider/assets/index.css";
 import "./Navbar.css";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import { Link } from "react-router-dom";
 export default function Navbar(props) {
   return (
     <nav className="Navbar">
       <div className="logo">
-        <a href="#">reactcolorpicker</a>
+        <Link to="/">reactcolorpicker</Link>
       </div>
       <div className="slider-container">
         <span>Level: {props.level}</span>
