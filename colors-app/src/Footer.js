@@ -1,21 +1,6 @@
 import React from "react";
-import "./Palette.css";
 import { withStyles } from "@material-ui/styles";
-
-const styles = {
-  PaletteFooter: {
-    backgroundColor: "white",
-    height: "5vh",
-    display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    fontWeight: "bold",
-  },
-  emoji: {
-    fontSize: "1rem",
-    margin: "0 1rem",
-  },
-};
+import styles from "./styles/FooterStyles";
 function Footer(props) {
   return (
     <footer className={props.classes.PaletteFooter}>

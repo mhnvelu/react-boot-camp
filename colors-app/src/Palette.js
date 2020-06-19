@@ -1,25 +1,10 @@
 import React, { useState } from "react";
 import ColorBox from "./ColorBox";
 import Navbar from "./Navbar";
-import "./Palette.css";
 import SnackBar from "./SnackBar";
 import Footer from "./Footer";
 import { withStyles } from "@material-ui/styles";
-
-const styles = {
-  Palette: {
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-  },
-  PaletteColors: {
-    height: "90%",
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-  },
-};
+import styles from "./styles/PaletteStyles";
 
 function Palette(props) {
   const [level, setLevel] = useState(500);
