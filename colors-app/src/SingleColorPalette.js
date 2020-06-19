@@ -3,8 +3,33 @@ import ColorBox from "./ColorBox";
 import Navbar from "./Navbar";
 import SnackBar from "./SnackBar";
 import Footer from "./Footer";
-export default function SingleColorPalette(props) {
-  const { colors, colorId, routeProps } = props;
+import { withStyles } from "@material-ui/styles";
+
+const styles = {
+  goBack: {
+    backgroundColor: "black",
+    color: "white",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  ColorBox: {
+    /* display: inline-block; */
+    width: "20%",
+    height: "50%",
+    margin: "0 auto",
+    position: "relative",
+    cursor: "pointer",
+    marginBottom: "-4px",
+    "&:hover button": {
+      opacity: "1",
+      transition: "0.5s",
+    },
+  },
+};
+
+function SingleColorPalette(props) {
+  const { colors, colorId, routeProps, classes } = props;
   const [format, setFormat] = useState({ value: "hex", open: false });
 
   function handleFormatChange(e) {
@@ -48,7 +73,7 @@ export default function SingleColorPalette(props) {
             showMore={false}
           />
         ))}
-        <div className="goback ColorBox">
+        <div className={`${classes.ColorBox} ${classes.goBack}`}>
           <button className="back-button" onClick={handleGoBack}>
             Go Back
           </button>
@@ -64,3 +89,5 @@ export default function SingleColorPalette(props) {
     </div>
   );
 }
+
+export default withStyles(styles)(SingleColorPalette);

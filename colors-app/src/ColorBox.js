@@ -62,6 +62,68 @@ const styles = {
     cursor: "pointer",
     opacity: "0",
   },
+  boxContent: {
+    position: "absolute",
+    bottom: "0%",
+    left: "0%",
+    padding: "10px",
+    color: "black",
+    letterSpacing: "1px",
+    textTransform: "uppercase",
+    fontSize: "12px",
+  },
+  copyOverlay: {
+    opacity: "0",
+    zIndex: "0",
+    width: "100%",
+    height: "100%",
+    transition: "transform 1s ease-in-out",
+  },
+  showOverlay: {
+    opacity: "1",
+    zIndex: "10",
+    /* position : absolute will take the overlay container out of document flow */
+    position: "absolute",
+    transform: "scale(50)",
+  },
+
+  copyMsg: {
+    position: "fixed",
+    top: "0",
+    right: "0",
+    bottom: "0",
+    left: "0",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "3rem",
+    color: "white",
+    transform: "scale(0.1)",
+    opacity: "0",
+
+    "& h1": {
+      width: "100%",
+      fontWeight: "400",
+      textShadow: "1px 2px black",
+      background: "rgba(255, 255, 255, 0.2)",
+      textAlign: "center",
+      padding: "1rem",
+      marginBottom: "0",
+    },
+
+    "& p": {
+      fontSize: "2rem",
+      fontWeight: "100",
+    },
+  },
+  showCopyMsg: {
+    opacity: "1",
+    transform: "scale(1)",
+    zIndex: "25",
+    transition: "all 0.6s ease-in-out",
+    transitionDelay: "0.8s",
+  },
 };
 
 function ColorBox(props) {
@@ -76,16 +138,21 @@ function ColorBox(props) {
   return (
     <div className={classes.ColorBox} style={{ background: color }}>
       <div
-        className={`copy-overlay ${copied ? "show" : ""}`}
+        className={`${classes.copyOverlay} ${
+          copied ? classes.showOverlay : ""
+        }`}
         style={{ background: color }}
       />
-      <div className={`copy-msg ${copied ? "show" : ""}  ${classes.copyText}`}>
+      <div
+        className={`${classes.copyMsg} ${copied ? classes.showCopyMsg : ""}  ${
+          classes.copyText
+        }`}>
         <h1>COPIED!</h1>
         <p>{color}</p>
       </div>
 
-      <div className="copy-container">
-        <div className="box-content">
+      <div>
+        <div className={classes.boxContent}>
           <span className={classes.colorName}>{name}</span>
         </div>
         <CopyToClipboard text={color} onCopy={changeCopyState}>
