@@ -38,6 +38,7 @@ export default function Palette(props) {
             key={color.id}
             name={color.name}
             color={color[format.value]}
+            showMore={true}
           />
         ))}
       </div>
