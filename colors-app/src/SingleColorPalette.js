@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import SnackBar from "./SnackBar";
 import Footer from "./Footer";
 export default function SingleColorPalette(props) {
-  const { colors, colorId } = props;
+  const { colors, colorId, routeProps } = props;
   const [format, setFormat] = useState({ value: "hex", open: false });
 
   function handleFormatChange(e) {
@@ -19,18 +19,19 @@ export default function SingleColorPalette(props) {
     for (let level in colors) {
       let colorsAtLevel = colors[level];
       let color = colorsAtLevel.filter((color) => color.id === colorId);
-      console.log(color[0]);
       colorShades.push(color[0]);
     }
-    console.log(colorShades.slice(1));
-
     return colorShades.slice(1);
   };
 
   const ref = useRef(gatherShades());
 
+  const handleGoBack = () => {
+    routeProps.history.goBack();
+  };
+
   return (
-    <div className="Palette">
+    <div className="SingleColorPalette Palette">
       <Navbar
         format={format.value}
         handleFormatChange={handleFormatChange}
@@ -41,12 +42,17 @@ export default function SingleColorPalette(props) {
           <ColorBox
             paletteId={props.id}
             colorId={colorId}
-            key={color.id}
+            key={color.name}
             name={color.name}
             color={color[format.value]}
             showMore={false}
           />
         ))}
+        <div className="goback ColorBox">
+          <button className="back-button" onClick={handleGoBack}>
+            Go Back
+          </button>
+        </div>
       </div>
       <SnackBar
         open={format.open}

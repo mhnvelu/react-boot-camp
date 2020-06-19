@@ -6,6 +6,8 @@
 
 .Palette-colors {
   height: 90%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .Palette-footer {
