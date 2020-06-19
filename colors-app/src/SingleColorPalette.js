@@ -6,25 +6,48 @@ import Footer from "./Footer";
 import { withStyles } from "@material-ui/styles";
 
 const styles = {
+  Palette: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+  },
+  PaletteColors: {
+    height: "90%",
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+  },
   goBack: {
     backgroundColor: "black",
     color: "white",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-  },
-  ColorBox: {
-    /* display: inline-block; */
     width: "20%",
     height: "50%",
     margin: "0 auto",
     position: "relative",
     cursor: "pointer",
     marginBottom: "-4px",
-    "&:hover button": {
-      opacity: "1",
-      transition: "0.5s",
-    },
+    opacity: "1",
+  },
+  backButton: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    width: "100px",
+    height: "30px",
+    marginLeft: "-50px",
+    marginTop: "-15px",
+    textAlign: "center",
+    outline: "none",
+    background: "rgba(255, 255, 255, 0.3)",
+    fontSize: "1rem",
+    lineHeight: "20px",
+    color: "white",
+    border: "none",
+    cursor: "pointer",
   },
 };
 
@@ -56,13 +79,13 @@ function SingleColorPalette(props) {
   };
 
   return (
-    <div className="SingleColorPalette Palette">
+    <div className={classes.Palette}>
       <Navbar
         format={format.value}
         handleFormatChange={handleFormatChange}
         showingAllColors={false}
       />
-      <div className="Palette-colors">
+      <div className={classes.PaletteColors}>
         {ref.current.map((color) => (
           <ColorBox
             paletteId={props.id}
@@ -73,8 +96,8 @@ function SingleColorPalette(props) {
             showMore={false}
           />
         ))}
-        <div className={`${classes.ColorBox} ${classes.goBack}`}>
-          <button className="back-button" onClick={handleGoBack}>
+        <div className={classes.goBack}>
+          <button className={classes.backButton} onClick={handleGoBack}>
             Go Back
           </button>
         </div>

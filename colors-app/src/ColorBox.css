@@ -12,7 +12,7 @@
   height: 50%;
 } */
 
-.goback.ColorBox {
+/* .goback.ColorBox {
   background-color: black;
   color: white;
   display: flex;
@@ -37,7 +37,7 @@
   color: white;
   border: none;
   cursor: pointer;
-}
+} */
 
 /* .copy-button {
   opacity: 0;

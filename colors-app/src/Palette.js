@@ -4,11 +4,27 @@ import Navbar from "./Navbar";
 import "./Palette.css";
 import SnackBar from "./SnackBar";
 import Footer from "./Footer";
+import { withStyles } from "@material-ui/styles";
 
-export default function Palette(props) {
+const styles = {
+  Palette: {
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+  },
+  PaletteColors: {
+    height: "90%",
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+  },
+};
+
+function Palette(props) {
   const [level, setLevel] = useState(500);
   const [format, setFormat] = useState({ value: "hex", open: false });
-
+  const { classes } = props;
   function handleSliderChange(newLevel) {
     setLevel(newLevel);
   }
@@ -22,7 +38,7 @@ export default function Palette(props) {
   }
 
   return (
-    <div className="Palette">
+    <div className={classes.Palette}>
       <Navbar
         level={level}
         format={format.value}
@@ -30,7 +46,7 @@ export default function Palette(props) {
         handleFormatChange={handleFormatChange}
         showingAllColors
       />
-      <div className="Palette-colors">
+      <div className={classes.PaletteColors}>
         {props.colors[level].map((color) => (
           <ColorBox
             paletteId={props.id}
@@ -53,3 +69,5 @@ export default function Palette(props) {
     </div>
   );
 }
+
+export default withStyles(styles)(Palette);
