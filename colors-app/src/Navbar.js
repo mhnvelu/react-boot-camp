@@ -11,18 +11,20 @@ export default function Navbar(props) {
       <div className="logo">
         <Link to="/">reactcolorpicker</Link>
       </div>
-      <div className="slider-container">
-        <span>Level: {props.level}</span>
-        <div className="slider">
-          <Slider
-            defaultValue={props.level}
-            step={100}
-            min={100}
-            max={900}
-            onAfterChange={props.handleLevelChange}
-          />
+      {props.showingAllColors && (
+        <div className="slider-container">
+          <span>Level: {props.level}</span>
+          <div className="slider">
+            <Slider
+              defaultValue={props.level}
+              step={100}
+              min={100}
+              max={900}
+              onAfterChange={props.handleLevelChange}
+            />
+          </div>
         </div>
-      </div>
+      )}
       <div className="select-container">
         <Select value={props.format} onChange={props.handleFormatChange}>
           <MenuItem value="hex">HEX - #fffff</MenuItem>

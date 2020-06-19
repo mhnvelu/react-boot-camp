@@ -63,7 +63,7 @@ function MiniPalette(props) {
     <div className={classes.root} onClick={handleClick}>
       <div className={classes.colors}>{miniColorBoxes}</div>
       <h5 className={classes.title}>
-        {paletteName} <i className={`em em-flag-${emoji}`}></i>
+        {paletteName} <i className={`em ${emoji}`}></i>
       </h5>
     </div>
   );

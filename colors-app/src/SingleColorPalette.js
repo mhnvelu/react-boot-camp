@@ -1,9 +1,19 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import ColorBox from "./ColorBox";
-
+import Navbar from "./Navbar";
+import SnackBar from "./SnackBar";
+import Footer from "./Footer";
 export default function SingleColorPalette(props) {
   const { colors, colorId } = props;
+  const [format, setFormat] = useState({ value: "hex", open: false });
 
+  function handleFormatChange(e) {
+    setFormat({ value: e.target.value, open: true });
+  }
+
+  function handleSnackbarClose() {
+    setFormat({ ...format, open: false });
+  }
   const gatherShades = () => {
     const colorShades = [];
     for (let level in colors) {
@@ -21,7 +31,11 @@ export default function SingleColorPalette(props) {
 
   return (
     <div className="Palette">
-      <h1>Single color palette</h1>
+      <Navbar
+        format={format.value}
+        handleFormatChange={handleFormatChange}
+        showingAllColors={false}
+      />
       <div className="Palette-colors">
         {ref.current.map((color) => (
           <ColorBox
@@ -29,11 +43,18 @@ export default function SingleColorPalette(props) {
             colorId={colorId}
             key={color.id}
             name={color.name}
-            color={color.hex}
+            color={color[format.value]}
             showMore={false}
           />
         ))}
       </div>
+      <SnackBar
+        open={format.open}
+        value={format.value}
+        handleSnackbarClose={handleSnackbarClose}
+      />
+
+      <Footer paletteName={props.paletteName} emoji={props.emoji} />
     </div>
   );
 }

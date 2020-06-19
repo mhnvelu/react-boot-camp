@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import ColorBox from "./ColorBox";
 import Navbar from "./Navbar";
 import "./Palette.css";
-import Snackbar from "@material-ui/core/Snackbar";
-import CloseIcon from "@material-ui/icons/Close";
-import IconButton from "@material-ui/core/IconButton";
+import SnackBar from "./SnackBar";
+import Footer from "./Footer";
 
 export default function Palette(props) {
   const [level, setLevel] = useState(500);
@@ -29,6 +28,7 @@ export default function Palette(props) {
         format={format.value}
         handleLevelChange={handleSliderChange}
         handleFormatChange={handleFormatChange}
+        showingAllColors
       />
       <div className="Palette-colors">
         {props.colors[level].map((color) => (
@@ -43,34 +43,13 @@ export default function Palette(props) {
         ))}
       </div>
 
-      <Snackbar
-        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+      <SnackBar
         open={format.open}
-        autoHideDuration={3000}
-        message={
-          <span id="message-id">
-            Format Changed To {format.value.toUpperCase()}
-          </span>
-        }
-        onClose={handleSnackbarClose}
-        ContentProps={{
-          "aria-describedby": "message-id",
-        }}
-        action={
-          <IconButton
-            size="small"
-            aria-label="close"
-            color="inherit"
-            onClick={handleSnackbarClose}>
-            <CloseIcon fontSize="small" />
-          </IconButton>
-        }
+        value={format.value}
+        handleSnackbarClose={handleSnackbarClose}
       />
 
-      <footer className="Palette-footer">
-        {props.paletteName}{" "}
-        <i className={`emoji em em-flag-${props.emoji}`}></i>
-      </footer>
+      <Footer paletteName={props.paletteName} emoji={props.emoji} />
     </div>
   );
 }
