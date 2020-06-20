@@ -6,6 +6,7 @@ import "./App.css";
 import { generatePalette } from "./ColorHelper";
 import PaletteList from "./PaletteList";
 import SingleColorPalette from "./SingleColorPalette";
+import NewPaletteForm from "./NewPaletteForm";
 function App() {
   const findPalette = (id) => {
     let palette = seedColors.find((palette) => {
@@ -44,6 +45,8 @@ function App() {
           />
         )}
       />
+
+      <Route exact path="/create-palette" render={() => <NewPaletteForm />} />
     </Switch>
   );
 }

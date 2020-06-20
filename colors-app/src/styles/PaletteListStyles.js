@@ -17,7 +17,11 @@ const styles = {
     display: "flex",
     width: "100%",
     justifyContent: "space-between",
+    alignItems: "center",
     color: "white",
+    "& a": {
+      color: "white",
+    },
   },
   palettes: {
     display: "grid",
@@ -25,6 +29,10 @@ const styles = {
     gridTemplateColumns: "repeat(3,30%)",
     justifyContent: "center",
     gridGap: "5%",
+  },
+  createPalette: {
+    marginTop: "1.5rem",
+    fontSize: "1.2rem",
   },
 };
 
