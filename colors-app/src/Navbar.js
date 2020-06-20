@@ -1,20 +1,22 @@
 import React from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import "./Navbar.css";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
-export default function Navbar(props) {
+import styles from "./styles/NavbarStyles";
+import { withStyles } from "@material-ui/styles";
+function Navbar(props) {
+  const { classes } = props;
   return (
-    <nav className="Navbar">
-      <div className="logo">
+    <nav className={classes.Navbar}>
+      <div className={classes.logo}>
         <Link to="/">reactcolorpicker</Link>
       </div>
       {props.showingAllColors && (
-        <div className="slider-container">
+        <div>
           <span>Level: {props.level}</span>
-          <div className="slider">
+          <div className={classes.slider}>
             <Slider
               defaultValue={props.level}
               step={100}
@@ -25,7 +27,7 @@ export default function Navbar(props) {
           </div>
         </div>
       )}
-      <div className="select-container">
+      <div className={classes.selectContainer}>
         <Select value={props.format} onChange={props.handleFormatChange}>
           <MenuItem value="hex">HEX - #fffff</MenuItem>
           <MenuItem value="rgb">RGB - rgb(255,255,255)</MenuItem>
@@ -35,3 +37,5 @@ export default function Navbar(props) {
     </nav>
   );
 }
+
+export default withStyles(styles)(Navbar);
