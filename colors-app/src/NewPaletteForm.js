@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import {
   makeStyles,
@@ -83,12 +83,19 @@ export default function NewPaletteForm() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
+  const [color, setColor] = useState("blue");
+  const [colors, setColors] = useState(["purple"]);
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const addColor = () => {
+    setColors([...colors, color]);
   };
 
   return (
@@ -139,10 +146,14 @@ export default function NewPaletteForm() {
           </Button>
         </div>
         <ChromePicker
-          color="blue"
-          onChangeComplete={(newColor) => console.log(newColor)}
+          color={color}
+          onChangeComplete={(newColor) => setColor(newColor["hex"])}
         />
-        <Button variant="contained" color="primary">
+        <Button
+          variant="contained"
+          color="primary"
+          style={{ backgroundColor: color }}
+          onClick={addColor}>
           ADD COLOR
         </Button>
       </Drawer>
@@ -151,6 +162,11 @@ export default function NewPaletteForm() {
           [classes.contentShift]: open,
         })}>
         <div className={classes.drawerHeader} />
+        <ul>
+          {colors.map((color) => (
+            <li style={{ backgroundColor: color }}>{color}</li>
+          ))}
+        </ul>
       </main>
     </div>
   );
