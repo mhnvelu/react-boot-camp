@@ -56,7 +56,11 @@ function App() {
         exact
         path="/create-palette"
         render={(routeProps) => (
-          <NewPaletteForm savePalette={savePalette} routeProps={routeProps} />
+          <NewPaletteForm
+            savePalette={savePalette}
+            palettes={palettes}
+            routeProps={routeProps}
+          />
         )}
       />
     </Switch>

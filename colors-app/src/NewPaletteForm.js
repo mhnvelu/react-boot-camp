@@ -84,6 +84,7 @@ export default function NewPaletteForm(props) {
   const [currentColor, setCurrentColor] = useState("blue");
   const [colors, setColors] = useState([]);
   const [newColorName, setNewColorName] = useState("");
+  const [newPaletteName, setNewPaletteName] = useState("");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -103,8 +104,11 @@ export default function NewPaletteForm(props) {
     setNewColorName(e.target.value);
   };
 
+  const handlePaletteName = (e) => {
+    setNewPaletteName(e.target.value);
+  };
+
   const savePalette = () => {
-    let newPaletteName = "New Test Palette";
     let newPalette = {
       paletteName: newPaletteName,
       id: newPaletteName.toLowerCase().replace(/ /g, "-"),
@@ -124,14 +128,16 @@ export default function NewPaletteForm(props) {
       ValidatorForm.addValidationRule("isColorColorUnique", (value) =>
         colors.every(({ color }) => color !== currentColor)
       );
+
+      ValidatorForm.addValidationRule("isPaletteNameUnique", (value) =>
+        props.palettes.every(
+          ({ paletteName }) =>
+            paletteName.toLowerCase() !== newPaletteName.toLowerCase()
+        )
+      );
     };
 
     setValidation();
-
-    // return () => {
-    //   console.log("uset");
-    //   ValidatorForm.removeValidationRule("isColorNameUnique");
-    // };
   });
 
   return (
@@ -155,9 +161,20 @@ export default function NewPaletteForm(props) {
           <Typography variant="h6" noWrap>
             Create A Palette
           </Typography>
-          <Button variant="contained" color="primary" onClick={savePalette}>
-            Save Palette
-          </Button>
+          <ValidatorForm onSubmit={savePalette}>
+            <TextValidator
+              label="Palette Name"
+              onChange={handlePaletteName}
+              name="paletteName"
+              value={newPaletteName}
+              validators={["required", "isPaletteNameUnique"]}
+              errorMessages={["Enter Palette Name", "Name already exists"]}
+            />
+            <Button variant="contained" color="primary" type="submit">
+              Save Palette
+            </Button>
+          </ValidatorForm>
+
           <Button variant="contained" color="secondary">
             Go Back
           </Button>
@@ -191,7 +208,6 @@ export default function NewPaletteForm(props) {
         <ChromePicker
           color={currentColor}
           onChangeComplete={(newColor) => {
-            // console.log(newColor);
             setCurrentColor(newColor.hex);
           }}
         />
@@ -204,7 +220,7 @@ export default function NewPaletteForm(props) {
             value={newColorName}
             validators={["required", "isColorNameUnique", "isColorColorUnique"]}
             errorMessages={[
-              "Enter a color name",
+              "Enter Color name",
               "Name already exists",
               "Color already exists",
             ]}
