@@ -10,7 +10,7 @@ const styles = {
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "flex-start",
-    alignItems: "flex-start",
+    alignContent: "flex-start",
   },
   goBack: {
     backgroundColor: "black",

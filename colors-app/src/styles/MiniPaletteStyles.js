@@ -15,6 +15,7 @@ const styles = {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "flex-start",
+    alignContent: "flex-start",
     height: "150px",
     width: "100%",
     borderRadius: "5px",

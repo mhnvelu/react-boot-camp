@@ -29,14 +29,12 @@ function ColorBox(props) {
         <p>{color}</p>
       </div>
 
-      <div>
-        <div className={classes.boxContent}>
-          <span className={classes.colorName}>{name}</span>
-        </div>
-        <CopyToClipboard text={color} onCopy={changeCopyState}>
-          <button className={classes.copyButton}>COPY</button>
-        </CopyToClipboard>
+      <div className={classes.boxContent}>
+        <span className={classes.colorName}>{name}</span>
       </div>
+      <CopyToClipboard text={color} onCopy={changeCopyState}>
+        <button className={classes.copyButton}>COPY</button>
+      </CopyToClipboard>
 
       {showMore && (
         <Link to={`/palette/${paletteId}/${colorId}`}>
