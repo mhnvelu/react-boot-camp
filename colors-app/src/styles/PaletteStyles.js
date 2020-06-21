@@ -7,6 +7,7 @@ const styles = {
   PaletteColors: {
     height: "90%",
     display: "flex",
+    flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "flex-start",
     alignItems: "flex-start",

@@ -1,11 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
-import {
-  makeStyles,
-  useTheme,
-  Theme,
-  createStyles,
-} from "@material-ui/core/styles";
+import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -84,14 +79,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function NewPaletteForm(props) {
   const classes = useStyles();
-  const theme = useTheme();
   const [open, setOpen] = useState(false);
 
   const [currentColor, setCurrentColor] = useState("blue");
   const [colors, setColors] = useState([]);
   const [newColorName, setNewColorName] = useState("");
-
-  const ref = useRef(0);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -109,6 +101,18 @@ export default function NewPaletteForm(props) {
 
   const handleChange = (e) => {
     setNewColorName(e.target.value);
+  };
+
+  const savePalette = () => {
+    let newPaletteName = "New Test Palette";
+    let newPalette = {
+      paletteName: newPaletteName,
+      id: newPaletteName.toLowerCase().replace(/ /g, "-"),
+      emoji: "smile",
+      colors: colors,
+    };
+    props.savePalette(newPalette);
+    props.routeProps.history.goBack();
   };
 
   useEffect(() => {
@@ -135,6 +139,7 @@ export default function NewPaletteForm(props) {
       <CssBaseline />
       <AppBar
         position="fixed"
+        color="default"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}>
@@ -150,6 +155,12 @@ export default function NewPaletteForm(props) {
           <Typography variant="h6" noWrap>
             Create A Palette
           </Typography>
+          <Button variant="contained" color="primary" onClick={savePalette}>
+            Save Palette
+          </Button>
+          <Button variant="contained" color="secondary">
+            Go Back
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer
