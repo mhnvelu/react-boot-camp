@@ -7,10 +7,6 @@ const styles = {
     alignItems: "center",
     fontWeight: "bold",
   },
-  emoji: {
-    fontSize: "1rem",
-    margin: "0 1rem",
-  },
 };
 
 export default styles;
