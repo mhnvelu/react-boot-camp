@@ -6,8 +6,9 @@ const styles = {
     padding: "0.5rem",
     position: "relative",
     overflow: "hidden",
-    "&:hover": {
-      cursor: "pointer",
+    cursor: "pointer",
+    "&:hover svg": {
+      opacity: 1,
     },
   },
   colors: {
@@ -38,6 +39,19 @@ const styles = {
   minibox: {
     width: "20%",
     height: "25%",
+  },
+  deleteContainer: {},
+  deleteIcon: {
+    position: "absolute",
+    top: "0px",
+    right: "0px",
+    color: "white",
+    backgroundColor: "#eb3d30",
+    width: "20px",
+    height: "20px",
+    padding: "10px",
+    borderRadius: "5px",
+    opacity: 0,
   },
 };
 
