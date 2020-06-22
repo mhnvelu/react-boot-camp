@@ -23,6 +23,7 @@ const styles = (theme) => ({
     }),
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -36,7 +37,9 @@ const styles = (theme) => ({
     marginRight: theme.spacing(2),
   },
   navButtons: {
-    display: "flex",
+    "& Button": {
+      margin: "0 0.5rem",
+    },
   },
 });
 
@@ -50,8 +53,18 @@ function NewPaletteFormNavbar(props) {
     history,
   } = props;
 
+  const [isFormShowing, setIsFormShowing] = useState(false);
+
   const handleGoBack = () => {
     history.goBack();
+  };
+
+  const showForm = () => {
+    setIsFormShowing(true);
+  };
+
+  const closeForm = () => {
+    setIsFormShowing(false);
   };
 
   return (
@@ -77,12 +90,22 @@ function NewPaletteFormNavbar(props) {
           </Typography>
         </Toolbar>
         <div className={classes.navButtons}>
-          <NewPaletteMetaForm palettes={palettes} savePalette={savePalette} />
           <Button variant="contained" color="secondary" onClick={handleGoBack}>
             Go Back
           </Button>
+          <Button variant="outlined" color="primary" onClick={showForm}>
+            Save Palette
+          </Button>
         </div>
       </AppBar>
+      {isFormShowing && (
+        <NewPaletteMetaForm
+          palettes={palettes}
+          savePalette={savePalette}
+          open={isFormShowing}
+          closeForm={closeForm}
+        />
+      )}
     </div>
   );
 }
