@@ -4,7 +4,6 @@ const styles = {
   ColorBox: {
     width: "20%",
     height: (props) => (props.showMore ? "25%" : "50%"),
-    // margin: "0 auto",
     position: "relative",
     cursor: "pointer",
     marginBottom: "-4px",

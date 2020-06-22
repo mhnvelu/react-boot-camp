@@ -11,8 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import DraggableColorList from "./DraggableColorList";
 import { arrayMove } from "react-sortable-hoc";
-
-const drawerWidth = 400;
+import { DRAWER_WIDTH as drawerWidth } from "./constants";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
