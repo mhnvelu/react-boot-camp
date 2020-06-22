@@ -8,6 +8,35 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
+import { withStyles } from "@material-ui/core/styles";
+
+const drawerWidth = 400;
+
+const styles = (theme) => ({
+  root: {
+    display: "flex",
+  },
+  appBar: {
+    transition: theme.transitions.create(["margin", "width"], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  appBarShift: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+    transition: theme.transitions.create(["margin", "width"], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  navButtons: {},
+});
 
 function NewPaletteFormNavbar(props) {
   const {
@@ -45,7 +74,7 @@ function NewPaletteFormNavbar(props) {
   });
 
   return (
-    <div>
+    <div className={classes.root}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -65,6 +94,8 @@ function NewPaletteFormNavbar(props) {
           <Typography variant="h6" noWrap>
             Create A Palette
           </Typography>
+        </Toolbar>
+        <div className={classes.navButtons}>
           <ValidatorForm onSubmit={handleSavePalette}>
             <TextValidator
               label="Palette Name"
@@ -77,15 +108,17 @@ function NewPaletteFormNavbar(props) {
             <Button variant="contained" color="primary" type="submit">
               Save Palette
             </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleGoBack}>
+              Go Back
+            </Button>
           </ValidatorForm>
-
-          <Button variant="contained" color="secondary" onClick={handleGoBack}>
-            Go Back
-          </Button>
-        </Toolbar>
+        </div>
       </AppBar>
     </div>
   );
 }
 
-export default NewPaletteFormNavbar;
+export default withStyles(styles, { withTheme: true })(NewPaletteFormNavbar);

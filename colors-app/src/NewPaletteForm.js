@@ -19,23 +19,6 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: "flex",
     },
-    appBar: {
-      transition: theme.transitions.create(["margin", "width"], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-    },
-    appBarShift: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-      transition: theme.transitions.create(["margin", "width"], {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
     hide: {
       display: "none",
     },
@@ -128,7 +111,6 @@ export default function NewPaletteForm(props) {
     <div className={classes.root}>
       <NewPaletteFormNavbar
         open={open}
-        classes={classes}
         palettes={props.palettes}
         handleDrawerOpen={handleDrawerOpen}
         savePalette={savePalette}
