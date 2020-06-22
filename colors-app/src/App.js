@@ -18,8 +18,12 @@ function App() {
   };
 
   const savePalette = (newPalette) => {
-    console.log(newPalette);
     setPalettes([...palettes, newPalette]);
+  };
+
+  const deletePalette = (id) => {
+    console.log(id);
+    setPalettes(palettes.filter((palette) => palette.id !== id));
   };
 
   useEffect(() => {
@@ -36,7 +40,11 @@ function App() {
         exact
         path="/"
         render={(routeProps) => (
-          <PaletteList palettes={palettes} routeProps={routeProps} />
+          <PaletteList
+            palettes={palettes}
+            deletePalette={deletePalette}
+            routeProps={routeProps}
+          />
         )}
       />
       <Route

@@ -40,7 +40,6 @@ const styles = {
     width: "20%",
     height: "25%",
   },
-  deleteContainer: {},
   deleteIcon: {
     position: "absolute",
     top: "0px",

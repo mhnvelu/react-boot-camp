@@ -5,19 +5,22 @@ import styles from "./styles/PaletteListStyles";
 import { Link } from "react-router-dom";
 
 function PaletteList(props) {
-  const { palettes, classes, routeProps } = props;
+  const { palettes, deletePalette, classes, routeProps } = props;
   return (
     <div className={classes.root}>
       <div className={classes.container}>
         <nav className={classes.nav}>
           <h1>React Colors</h1>
-          <Link exact to="/create-palette">
-            Create Palette
-          </Link>
+          <Link to="/create-palette">Create Palette</Link>
         </nav>
         <div className={classes.palettes}>
           {palettes.map((palette) => (
-            <MiniPalette {...palette} {...routeProps} />
+            <MiniPalette
+              key={palette.id}
+              {...palette}
+              {...routeProps}
+              deletePalette={deletePalette}
+            />
           ))}
         </div>
       </div>
