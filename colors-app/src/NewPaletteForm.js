@@ -97,11 +97,13 @@ export default function NewPaletteForm(props) {
     setColors(colors.filter((color) => color.name !== colorName));
   };
 
-  const savePalette = (newPaletteName) => {
+  const savePalette = (newPaletteNameAndEmoji) => {
     let newPalette = {
-      paletteName: newPaletteName,
-      id: newPaletteName.toLowerCase().replace(/ /g, "-"),
-      emoji: "smile",
+      paletteName: newPaletteNameAndEmoji.newPaletteName,
+      id: newPaletteNameAndEmoji.newPaletteName
+        .toLowerCase()
+        .replace(/ /g, "-"),
+      emoji: newPaletteNameAndEmoji.emoji,
       colors: colors,
     };
     props.savePalette(newPalette);

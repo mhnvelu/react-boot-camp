@@ -1,6 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles/MiniPaletteStyles";
+import { Emoji } from "emoji-mart";
 function MiniPalette(props) {
   const { classes, id, paletteName, emoji, colors } = props;
 
@@ -21,7 +22,7 @@ function MiniPalette(props) {
     <div className={classes.root} onClick={handleClick}>
       <div className={classes.colors}>{miniColorBoxes}</div>
       <h5 className={classes.title}>
-        {paletteName} <i className={`em ${emoji}`}></i>
+        {paletteName} <Emoji emoji={{ id: emoji, skin: 3 }} size={32} />
       </h5>
     </div>
   );

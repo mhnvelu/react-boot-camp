@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -102,7 +102,6 @@ function NewPaletteFormNavbar(props) {
         <NewPaletteMetaForm
           palettes={palettes}
           savePalette={savePalette}
-          open={isFormShowing}
           closeForm={closeForm}
         />
       )}
