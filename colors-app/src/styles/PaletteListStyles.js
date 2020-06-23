@@ -1,3 +1,4 @@
+import sizes from "./MediaQueries";
 const styles = {
   root: {
     backgroundColor: "blue",
@@ -7,11 +8,20 @@ const styles = {
     justifyContent: "center",
   },
   container: {
-    width: "50%",
+    width: "60%",
     display: "flex",
     flexDirection: "column",
     flexWrap: "wrap",
     alignItems: "flex-start",
+    [sizes.down("md")]: {
+      width: "80%",
+    },
+    [sizes.down("sm")]: {
+      width: "70%",
+    },
+    [sizes.down("xs")]: {
+      width: "60%",
+    },
   },
   nav: {
     display: "flex",
@@ -28,7 +38,19 @@ const styles = {
     width: "100%",
     gridTemplateColumns: "repeat(3,30%)",
     justifyContent: "center",
-    gridGap: "5%",
+    gridGap: "2.5rem",
+    [sizes.down("md")]: {
+      gridTemplateColumns: "repeat(2,50%)",
+      gridGap: "1.5rem",
+    },
+    [sizes.down("sm")]: {
+      gridTemplateColumns: "repeat(1,70%)",
+      gridGap: "1.5rem",
+    },
+    [sizes.down("xs")]: {
+      gridTemplateColumns: "repeat(1,90%)",
+      gridGap: "1.5rem",
+    },
   },
   createPalette: {
     marginTop: "1.5rem",
