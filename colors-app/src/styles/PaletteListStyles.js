@@ -1,6 +1,16 @@
 import sizes from "./MediaQueries";
 import bg from "./backGround.svg";
 const styles = {
+  "@global": {
+    ".fade-exit": {
+      opacity: 1,
+    },
+    ".fade-exit-active": {
+      opacity: 0,
+      transition: "opacity 500ms ease-out",
+    },
+  },
+
   root: {
     backgroundColor: "#394bad",
     backgroundImage: `url(${bg})`,
