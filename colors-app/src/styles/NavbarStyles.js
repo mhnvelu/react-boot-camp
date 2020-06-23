@@ -3,7 +3,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start",
-    height: "6vh",
+    height: "5vh",
   },
 
   /* logo */
