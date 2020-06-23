@@ -49,7 +49,7 @@ const styles = {
       marginLeft: "-7px",
     },
 
-    [sizes.down("md")]: {
+    [sizes.down("sm")]: {
       width: "150px",
     },
   },

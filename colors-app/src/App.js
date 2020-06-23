@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Palette from "./Palette";
-import seedColors from "./seedColors";
-import { generatePalette } from "./ColorHelper";
 import PaletteList from "./PaletteList";
 import SingleColorPalette from "./SingleColorPalette";
 import NewPaletteForm from "./NewPaletteForm";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Page from "./Page";
+import seedColors from "./seedColors";
+import { generatePalette } from "./ColorHelper";
 function App() {
   const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"));
   const [palettes, setPalettes] = useState(savedPalettes || seedColors);
@@ -23,7 +23,6 @@ function App() {
   };
 
   const deletePalette = (id) => {
-    console.log(id);
     setPalettes(palettes.filter((palette) => palette.id !== id));
   };
 

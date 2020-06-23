@@ -4,31 +4,38 @@ import "rc-slider/assets/index.css";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
-import styles from "./styles/NavbarStyles";
 import { withStyles } from "@material-ui/styles";
+import styles from "./styles/NavbarStyles";
 function Navbar(props) {
-  const { classes } = props;
+  const {
+    classes,
+    showingAllColors,
+    level,
+    handleLevelChange,
+    format,
+    handleFormatChange,
+  } = props;
   return (
     <nav className={classes.Navbar}>
       <div className={classes.logo}>
         <Link to="/">reactcolorpicker</Link>
       </div>
-      {props.showingAllColors && (
+      {showingAllColors && (
         <div>
-          <span>Level: {props.level}</span>
+          <span>Level: {level}</span>
           <div className={classes.slider}>
             <Slider
-              defaultValue={props.level}
+              defaultValue={level}
               step={100}
               min={100}
               max={900}
-              onAfterChange={props.handleLevelChange}
+              onAfterChange={handleLevelChange}
             />
           </div>
         </div>
       )}
       <div className={classes.selectContainer}>
-        <Select value={props.format} onChange={props.handleFormatChange}>
+        <Select value={format} onChange={handleFormatChange}>
           <MenuItem value="hex">HEX - #fffff</MenuItem>
           <MenuItem value="rgb">RGB - rgb(255,255,255)</MenuItem>
           <MenuItem value="rgba">RGBA - rgba(255,255,255,0.5)</MenuItem>

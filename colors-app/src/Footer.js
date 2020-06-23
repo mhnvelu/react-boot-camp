@@ -1,12 +1,13 @@
 import React from "react";
 import { withStyles } from "@material-ui/styles";
-import styles from "./styles/FooterStyles";
 import { Emoji } from "emoji-mart";
+import styles from "./styles/FooterStyles";
 function Footer(props) {
+  const { classes, paletteName, emoji } = props;
   return (
-    <footer className={props.classes.PaletteFooter}>
-      {props.paletteName}
-      <Emoji emoji={{ id: props.emoji, skin: 3 }} size={32} />
+    <footer className={classes.PaletteFooter}>
+      {paletteName}
+      <Emoji emoji={{ id: emoji, skin: 3 }} size={32} />
     </footer>
   );
 }

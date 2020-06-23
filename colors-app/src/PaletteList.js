@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import MiniPalette from "./MiniPalette";
 import { withStyles } from "@material-ui/styles";
-import styles from "./styles/PaletteListStyles";
 import { Link } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Dialog from "@material-ui/core/Dialog";
@@ -15,6 +13,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import Avatar from "@material-ui/core/Avatar";
 import blue from "@material-ui/core/colors/blue";
 import red from "@material-ui/core/colors/red";
+import MiniPalette from "./MiniPalette";
+import styles from "./styles/PaletteListStyles";
 function PaletteList(props) {
   const { palettes, deletePalette, classes, routeProps } = props;
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);

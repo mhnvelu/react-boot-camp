@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import NewPaletteFormNavbar from "./NewPaletteFormNavbar";
-import ColorPickerForm from "./ColorPickerForm";
 import clsx from "clsx";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -11,7 +9,10 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import DraggableColorList from "./DraggableColorList";
 import { arrayMove } from "react-sortable-hoc";
+import NewPaletteFormNavbar from "./NewPaletteFormNavbar";
+import ColorPickerForm from "./ColorPickerForm";
 import { DRAWER_WIDTH as drawerWidth } from "./constants";
+import seedColors from "./seedColors";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -74,11 +75,12 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function NewPaletteForm(props) {
+  const { palettes, routeProps } = props;
   const maxColors = 20;
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
-  const [colors, setColors] = useState(props.palettes[0].colors);
+  const [colors, setColors] = useState(seedColors[0].colors);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -106,7 +108,7 @@ export default function NewPaletteForm(props) {
       colors: colors,
     };
     props.savePalette(newPalette);
-    props.routeProps.history.goBack();
+    routeProps.history.goBack();
   };
 
   const onSortEnd = ({ oldIndex, newIndex }) => {
@@ -118,7 +120,7 @@ export default function NewPaletteForm(props) {
   };
 
   const addRandomColors = () => {
-    const allColors = props.palettes.map((p) => p.colors).flat();
+    const allColors = seedColors.map((p) => p.colors).flat();
     let random = Math.floor(Math.random() * allColors.length);
     const randomColor = allColors[random];
     setColors([...colors, randomColor]);
@@ -129,10 +131,10 @@ export default function NewPaletteForm(props) {
     <div className={classes.root}>
       <NewPaletteFormNavbar
         open={open}
-        palettes={props.palettes}
+        palettes={palettes}
         handleDrawerOpen={handleDrawerOpen}
         savePalette={savePalette}
-        history={props.routeProps.history}
+        history={routeProps.history}
       />
       <Drawer
         className={classes.drawer}

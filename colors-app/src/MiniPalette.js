@@ -1,8 +1,8 @@
 import React from "react";
 import { withStyles } from "@material-ui/styles";
-import styles from "./styles/MiniPaletteStyles";
-import { Emoji } from "emoji-mart";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { Emoji } from "emoji-mart";
+import styles from "./styles/MiniPaletteStyles";
 function MiniPalette(props) {
   const { classes, id, paletteName, emoji, colors, openDialog } = props;
 
@@ -23,7 +23,6 @@ function MiniPalette(props) {
         style={{ backgroundColor: color.color }}></div>
     );
   });
-
   return (
     <div className={classes.root} onClick={handleClick}>
       <DeleteIcon

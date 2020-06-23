@@ -1,15 +1,15 @@
 import React, { useState } from "react";
+import { withStyles } from "@material-ui/styles";
 import ColorBox from "./ColorBox";
 import Navbar from "./Navbar";
 import SnackBar from "./SnackBar";
 import Footer from "./Footer";
-import { withStyles } from "@material-ui/styles";
 import styles from "./styles/PaletteStyles";
 
 function Palette(props) {
   const [level, setLevel] = useState(500);
   const [format, setFormat] = useState({ value: "hex", open: false });
-  const { classes } = props;
+  const { classes, colors, id, paletteName, emoji } = props;
   function handleSliderChange(newLevel) {
     setLevel(newLevel);
   }
@@ -32,9 +32,9 @@ function Palette(props) {
         showingAllColors
       />
       <div className={classes.PaletteColors}>
-        {props.colors[level].map((color) => (
+        {colors[level].map((color) => (
           <ColorBox
-            paletteId={props.id}
+            paletteId={id}
             colorId={color.id}
             key={color.id}
             name={color.name}
@@ -50,7 +50,7 @@ function Palette(props) {
         handleSnackbarClose={handleSnackbarClose}
       />
 
-      <Footer paletteName={props.paletteName} emoji={props.emoji} />
+      <Footer paletteName={paletteName} emoji={emoji} />
     </div>
   );
 }
