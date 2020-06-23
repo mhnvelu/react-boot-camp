@@ -15,7 +15,7 @@ function ColorPickerForm(props) {
         colors.every(({ name }) => name.toLowerCase() !== value.toLowerCase())
       );
 
-      ValidatorForm.addValidationRule("isColorColorUnique", (value) =>
+      ValidatorForm.addValidationRule("isColorUnique", (value) =>
         colors.every(({ color }) => color !== currentColor)
       );
     };
@@ -39,6 +39,8 @@ function ColorPickerForm(props) {
         className={classes.colorPicker}
         color={currentColor}
         onChangeComplete={(newColor) => {
+          // Need to set current color in hsl, then the alpha slider works.
+          // hex is color and hsl.a is opacity
           setCurrentColor(newColor.hex);
         }}
       />
@@ -50,7 +52,7 @@ function ColorPickerForm(props) {
           onChange={handleChange}
           name="colorName"
           value={newColorName}
-          validators={["required", "isColorNameUnique", "isColorColorUnique"]}
+          validators={["required", "isColorNameUnique", "isColorUnique"]}
           errorMessages={[
             "Enter Color name",
             "Name already exists",
