@@ -1,3 +1,4 @@
+import sizes from "./MediaQueries";
 const styles = {
   Navbar: {
     display: "flex",
@@ -19,6 +20,9 @@ const styles = {
     "& a": {
       textDecoration: "none",
       color: "black",
+    },
+    [sizes.down("xs")]: {
+      display: "none",
     },
   },
 
@@ -43,6 +47,10 @@ const styles = {
       height: "13px",
       marginTop: "-3px",
       marginLeft: "-7px",
+    },
+
+    [sizes.down("md")]: {
+      width: "150px",
     },
   },
 

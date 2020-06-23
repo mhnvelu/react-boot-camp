@@ -1,4 +1,5 @@
 import { DRAWER_WIDTH as drawerWidth } from "../constants";
+import sizes from "./MediaQueries";
 
 const styles = (theme) => ({
   root: {
@@ -27,6 +28,10 @@ const styles = (theme) => ({
   navButtons: {
     "& Button": {
       margin: "0 0.5rem",
+      [sizes.down("xs")]: {
+        margin: "0 0.2rem",
+        padding: "0rem",
+      },
     },
   },
   hide: {
