@@ -187,6 +187,7 @@ export default function NewPaletteForm(props) {
           handleDelete={handleDelete}
           axis="xy"
           onSortEnd={onSortEnd}
+          distance={20}
         />
       </main>
     </div>
