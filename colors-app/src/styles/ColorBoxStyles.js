@@ -13,15 +13,15 @@ const styles = {
     },
     [sizes.down("lg")]: {
       width: "25%",
-      height: (props) => (props.showMore ? "20%" : "50%"),
+      height: (props) => (props.showMore ? "20%" : "33.333%"),
     },
     [sizes.down("md")]: {
       width: "50%",
-      height: (props) => (props.showMore ? "10%" : "50%"),
+      height: (props) => (props.showMore ? "10%" : "20%"),
     },
     [sizes.down("xs")]: {
       width: "100%",
-      height: (props) => (props.showMore ? "5.8%" : "10%"),
+      height: (props) => (props.showMore ? "5.8%" : "10.3%"),
     },
   },
   copyText: {

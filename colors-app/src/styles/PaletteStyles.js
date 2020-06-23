@@ -1,3 +1,4 @@
+import sizes from "./MediaQueries";
 const styles = {
   Palette: {
     height: "100vh",
@@ -20,11 +21,23 @@ const styles = {
     alignItems: "center",
     width: "20%",
     height: "50%",
-    margin: "0 auto",
+    // margin: "0 auto",
     position: "relative",
     cursor: "pointer",
     marginBottom: "-4px",
     opacity: "1",
+    [sizes.down("lg")]: {
+      width: "25%",
+      height: "33.333%",
+    },
+    [sizes.down("md")]: {
+      width: "50%",
+      height: "20%",
+    },
+    [sizes.down("xs")]: {
+      width: "100%",
+      height: "10%",
+    },
   },
   backButton: {
     position: "absolute",
