@@ -42,3 +42,13 @@
 ![Image description](./images/TodoApp-1.JPG)
 ![Image description](./images/TodoApp-2.JPG)
 ![Image description](./images/TodoApp-3.JPG)
+
+# Colors App
+
+## Covers Functional component, Hooks, many 3rd party libraries
+
+![Image description](./images/Colors-App-1.JPG)
+![Image description](./images/Colors-App-2.JPG)
+![Image description](./images/Colors-App-3.JPG)
+![Image description](./images/Colors-App-4.JPG)
+![Image description](./images/Colors-App-5.JPG)
